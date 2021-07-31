@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp">
+
+        <EditText
+            android:id="@+id/Update_Edt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:ems="10"
+            android:hint="Book Title"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Update_Edt_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Book Author"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/Update_Edt_title"
+            app:layout_constraintStart_toStartOf="@+id/Update_Edt_title"
+            app:layout_constraintTop_toBottomOf="@+id/Update_Edt_title" />
+
+        <EditText
+            android:id="@+id/Update_Edt_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Number of pages"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/Update_Edt_author"
+            app:layout_constraintTop_toBottomOf="@+id/Update_Edt_author" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Update_Btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="#4CAF50"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/Update_Edt_page"
+            app:layout_constraintStart_toStartOf="@+id/Update_Edt_page"
+            app:layout_constraintTop_toBottomOf="@+id/Update_Edt_page" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Update_Btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#ED4141"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:text="Delete"
+            app:layout_constraintEnd_toEndOf="@+id/Update_Btn_update"
+            app:layout_constraintStart_toStartOf="@+id/Update_Btn_update"
+            app:layout_constraintTop_toBottomOf="@+id/Update_Btn_update" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -51,9 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         //เรียกใช้
-        customAdapter = new CustomAdapter(MainActivity.this,book_id,book_title,book_author,book_pages);
+        customAdapter = new CustomAdapter(MainActivity.this,this,book_id,book_title,book_author,book_pages);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    }
+
+    //update activity v1
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
     }
 
     void storeDataInArray(){
@@ -72,5 +81,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+//update activity v2
+//    //Update View When Click Go Back
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        finish();
+//        overridePendingTransition(0, 0);
+//        startActivity(getIntent());
+//        overridePendingTransition(0, 0);
+//    }
 }

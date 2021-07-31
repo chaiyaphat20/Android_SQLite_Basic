@@ -17,9 +17,9 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "book_title";
     private static final String COLUMN_AUTHOR = "book_author";
-    private static final String COLUMN_PAGE = "book_pages";
+    private static final String COLUMN_PAGES = "book_pages";
 
-    public MyDataBaseHelper(Context context) {
+    MyDataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -30,7 +30,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_AUTHOR + " TEXT, " +
-                COLUMN_PAGE + " INTEGER);";
+                COLUMN_PAGES + " INTEGER);";
         db.execSQL(query);
 
     }
@@ -46,7 +46,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, title);
         cv.put(COLUMN_AUTHOR, author);
-        cv.put(COLUMN_PAGE, pages);
+        cv.put(COLUMN_PAGES, pages);
         //insert to SQLITE
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
@@ -66,6 +66,23 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         }
 
         return cursor;
+    }
+
+    //Update Data
+    void updateData(String row_id,String title, String author, String pages){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_AUTHOR, author);
+        cv.put(COLUMN_PAGES, pages);
+
+        //update ที่ column = _id และ มี data ที่ทำ cv ไว้แล้ว
+        long result = db.update(TABLE_NAME,cv,"_id=?",new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context,"Failed to Update.",Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(context,"Added succesfully!.",Toast.LENGTH_LONG).show();
+        }
     }
 
 }
