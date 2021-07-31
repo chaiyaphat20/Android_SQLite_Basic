@@ -7,10 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView book_id_text, book_title_text, book_author_text,book_pages_text;
 
         //หน้า Row เพื่อส่งค่า Props
-        ConstraintLayout My_row_main;
+        LinearLayout My_row_main;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             book_id_text = itemView.findViewById(R.id.book_id_text);
