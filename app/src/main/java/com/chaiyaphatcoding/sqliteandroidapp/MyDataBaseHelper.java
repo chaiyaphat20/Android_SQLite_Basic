@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -81,8 +82,23 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Toast.makeText(context,"Failed to Update.",Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(context,"Added succesfully!.",Toast.LENGTH_LONG).show();
+            Toast.makeText(context,"Succesfully! Added",Toast.LENGTH_LONG).show();
         }
+    }
+
+    //delete Data
+    void deleteOnRow(String row_id){
+        Log.d("test","delete data");
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result =  db.delete(TABLE_NAME,"_id=?",new String[]{row_id});
+        if(result == -1){
+            Log.d("test","delete Failed");
+            Toast.makeText(context,"Failed to Delete.",Toast.LENGTH_LONG).show();
+        }else{
+            Log.d("test","delete Succesfully");
+            Toast.makeText(context,"Succesfully! Deleted",Toast.LENGTH_LONG).show();
+        }
+
     }
 
 }
